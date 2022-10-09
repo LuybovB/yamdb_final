@@ -1,12 +1,14 @@
-![1](https://github.com/LuybovB/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
-# api_yamdb
+
+[![workflow](https://github.com/LuybovB/yamdb_final/actions/workflows/yamdb_workflow/badge.svg)]
+
+
 # Проект «YaMDb»
 
-## Описание:
+## Описание проекта:
 Проект YaMDb собирает отзывы пользователей на произведения, которые, в свою очередь, делятся на категории: «Книги», «Фильмы», «Музыка» и тд.
 Сами произведения в YaMDb не хранятся, здесь нельзя посмотреть фильм или послушать музыку.
 
-## Применяемые технологии / пакеты:
+## Техническое описание проекта YaMDb
 Принципы REST API.
 Формат передачи данных - JSON.
 Framework - Django, Django REST Framework.
@@ -28,15 +30,7 @@ Nginx.
 3. Пользователь отправляет запрос с параметрами *username* и *confirmation_code* на эндпоинт **/api/v1/auth/token/**, в ответе на запрос ему приходит *token* (JWT-токен).
 После регистрации и получения токена пользователь может отправить PATCH-запрос на **/users/me/** и заполнить поля в своём профайле (описание полей — в документации). 
 
-### Шаблон наполнения env-файла:
 
- DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql
- DB_NAME=<имя базы данных>
- POSTGRES_USER=<логин для подключения к базе данных>
- POSTGRES_PASSWORD=<пароль для подключения к БД>
- DB_HOST=<название сервиса (контейнера)>
- DB_PORT=<порт для подключения к БД>
- SECRET_KEY=<значение ключа из файла settings.py>
 
 ## Процесс установки локально:
 
@@ -59,22 +53,3 @@ Nginx.
  ```$ docker-compose exec web python manage.py createsuperuser```
  ```$ docker-compose exec web python manage.py collectstatic --no-input```
 
-
-## Пример использования API:
-
-**GET /titles/** - получить список всех произведений  
-
-Удачное выполнение запроса (200):
-Ключ|Значение|Описание
-----|--------|--------
-"id"|integer|ID произведения
-"name"|"string"|Название
-"year"|integer|Год выпуска
-"rating"|integer|Рейтинг на основе отзывов
-"description"|"string"|Описание
-"genre"|Array of objects|Жанр
-||"name"|Название жанра (string)
-||"slug"|"slug" (string)
-"category"|object|Категория
-||"name"|Название категории (string)
-||"slug"|"slug" (string)
