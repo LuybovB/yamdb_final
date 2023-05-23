@@ -53,3 +53,7 @@ Nginx.
  ```$ docker-compose exec web python manage.py createsuperuser```
  ```$ docker-compose exec web python manage.py collectstatic --no-input```
 
+## Автор проекта
+Беркова Любовь
+email: berkovalyubov@yandex.ru
+Telegram: @LuybouB
